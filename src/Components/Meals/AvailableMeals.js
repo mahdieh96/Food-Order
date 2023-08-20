@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./AvailableMeals.module.css";
+import { MealItem } from "./MealItem/MealItem";
 const DUMMY_MEALS = [
   {
     id: "m1",
@@ -27,7 +28,14 @@ const DUMMY_MEALS = [
   },
 ];
 export const AvailableMeals = () => {
-  const content = DUMMY_MEALS.map((meal) => <li>{meal.name}</li>);
+  const content = DUMMY_MEALS.map((meal) => (
+    <MealItem
+      name={meal.name}
+      id={meal.id}
+      description={meal.description}
+      price={meal.price}
+    />
+  ));
   return (
     <section className={classes.meals}>
       <ul>{content}</ul>
