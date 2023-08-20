@@ -1,4 +1,5 @@
 .cart-items {
+  list-style: none;
 }
 .total {
   display: flex;
