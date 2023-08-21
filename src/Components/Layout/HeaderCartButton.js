@@ -9,7 +9,7 @@ export const HeaderCartButton = (props) => {
     return total + item.amount;
   }, 0);
   const btnClass = `${classes.button}  ${btnIsHighlighted ? classes.bump : ""}`;
-  console.log("rendered");
+
   useEffect(() => {
     if (cartCtx.items.length === 0) {
       return;
