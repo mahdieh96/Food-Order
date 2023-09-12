@@ -13,7 +13,12 @@ export const AvailableMeals = () => {
     const fetchMeals = (data) => {
       const items = [];
       for (let key in data) {
-        items.push({ id: key, ...data[key] });
+        items.push({
+          id: key,
+          name: data[key].name,
+          des: data[key].des,
+          price: data[key].price,
+        });
       }
       setMeals(items);
     };
@@ -37,7 +42,7 @@ export const AvailableMeals = () => {
       <Card>
         <ul>
           {isLoading && <p>Meals are loading...</p>}
-          {!isLoading && error && <p>Something went wrong</p>}
+          {!isLoading && error && <p>{error}</p>}
           {!isLoading && !error && content}
         </ul>
       </Card>
