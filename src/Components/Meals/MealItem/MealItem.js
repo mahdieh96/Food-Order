@@ -16,7 +16,7 @@ export const MealItem = (props) => {
     cartCtx.addItem(item);
   };
   return (
-    <li className={classes.meal}>
+    <li className={classes.meal} key={props.id}>
       <div>
         <h3>{props.name}</h3>
         <div className={classes.description}>{props.description}</div>
