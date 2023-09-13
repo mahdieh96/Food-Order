@@ -1,6 +1,6 @@
 .cart-items {
   list-style: none;
-  max-height: 20rem;
+  max-height: 19rem;
   overflow-y: scroll;
 }
 .total {

@@ -38,6 +38,13 @@ export const Checkout = (props) => {
     if (!formIsValid) {
       return;
     }
+
+    props.onSubmitOrder({
+      name: name,
+      city: city,
+      postalCode: postal,
+      street: street,
+    });
   };
   return (
     <form onSubmit={confirmHandler} className={classes.form}>

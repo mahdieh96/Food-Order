@@ -14,7 +14,6 @@ const cartReducer = (state, action) => {
       newState[existingCartItemIndex].amount += action.item.amount;
       updatedItems = [...newState];
     }
-
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
@@ -34,10 +33,14 @@ const cartReducer = (state, action) => {
       updatedItems = [...state.items];
       updatedItems.splice(existingCartItemIndex, 1);
     }
-
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
+    };
+  } else if (action.type === "EMPTY__CART") {
+    return {
+      items: [],
+      totalAmount: 0,
     };
   }
 
@@ -55,11 +58,15 @@ export const CartProvider = (props) => {
   const removeItemFromCart = (id) => {
     cartDispatcher({ type: "REMOVE__ITEM", id: id });
   };
+  const emptyCart = () => {
+    cartDispatcher({ type: "EMPTY__CART" });
+  };
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCart,
+    emptyCart: emptyCart,
   };
   return (
     <CartContext.Provider value={cartContext}>
